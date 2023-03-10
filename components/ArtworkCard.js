@@ -6,8 +6,10 @@ import Link from "next/link";
 import { Container } from "react-bootstrap";
 
 export default function ArtworkCard(props){
-    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/811044`);
+    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
     //811044
+
+    var btnURL = "/artwork/" + props.objectID;
 
     if(error){ return <Error statusCode={404} /> }
 
@@ -23,7 +25,7 @@ export default function ArtworkCard(props){
                             {data?.classification ? <span><b>Classification:</b> {data?.classification}</span> : <span><b>Classification:</b> N/A</span>}<br/>
                             {data?.medium ? <span><b>Medium:</b> {data?.medium}</span> : <span><b>Medium:</b> N/A</span>}
                         </Card.Text>
-                        <Link href="/artwork/" passHref>
+                        <Link href={btnURL} passHref>
                             <Button variant="outline-dark"><b>ID:</b> {data?.objectID}</Button>
                         </Link>
                     </Container><br />
