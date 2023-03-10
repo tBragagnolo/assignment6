@@ -6,4 +6,8 @@ export default function Artwork(){
     const PER_PAGE = 12;
     const [artworkList, setArtworkList] = useState();
     const [page, setPage] = useState(1);
+    const router = useRouter();
+    let finalQuery = router.asPath.split('?')[1];
+
+    
 }
