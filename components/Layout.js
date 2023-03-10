@@ -1,7 +1,7 @@
 import MainNav from "./MainNav"
 import { Container } from "react-bootstrap"
 
-export default function Layout(){
+export default function Layout(props){
     return(
         <>
             <MainNav />
