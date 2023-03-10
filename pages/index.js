@@ -1,11 +1,11 @@
 import MainNav from "@/components/MainNav"
-//import ArtworkCard from "@/components/ArtworkCard"
-import ArtworkCardDetail from "@/components/ArtworkCard"
+import ArtworkCard from "@/components/ArtworkCard"
+//import ArtworkCardDetail from "@/components/ArtworkCard"
 
 export default function Home() {
   return (
     <>
-      <ArtworkCardDetail/>
+      <ArtworkCard/>
     </>
   )
 }

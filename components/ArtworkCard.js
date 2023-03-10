@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Link from "next/link";
 import { Container } from "react-bootstrap";
 
-function ArtworkCard(props){
+export default function ArtworkCard(props){
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/811044`);
     //811044
 
@@ -33,7 +33,7 @@ function ArtworkCard(props){
     else{ return null }
 }
 
-export default function ArtworkCardDetail(){
+function ArtworkCardDetail(){
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/811044`);
     //811044
 
@@ -43,16 +43,18 @@ export default function ArtworkCardDetail(){
         return(
             <>
                 <Card>
-                    {data?.primaryImageSmall ? <Card.Img src={data?.primaryImageSmall}/> : <Card.Img src="https://via.placeholder.com/375x375.png?text=[+Not+Available+]"/>}
-                    {data?.title ? <Card.Title>{data?.title}</Card.Title> : <Card.Title>N/A</Card.Title>}
-                    <Card.Text>
-                        {data?.objectDate ? <span><b>Date:</b> {data?.objectDate}</span> : <span><b>Date:</b> N/A</span>}<br/>
-                        {data?.classification ? <span><b>Classification:</b> {data?.classification}</span> : <span><b>Classification:</b> N/A</span>}<br/>
-                        {data?.medium ? <span><b>Medium:</b> {data?.medium}</span> : <span><b>Medium:</b> N/A</span>}<br /><br/>
-                        {data?.artistDisplayName ? <span><b>Artist:</b> {data?.artistDisplayName} (<a href={data?.artistWikidata_URL} target="_blank" rel="noreferrer" >wiki</a>)</span> : <span><b>Artist:</b> N/A</span>}<br/>
-                        {data?.creditLine ? <span><b>Credit Line:</b> {data?.creditLine}</span> : <span><b>Credit Line:</b> N/A</span>}<br/>
-                        {data?.dimensions ? <span><b>Dimensions:</b> {data?.dimensions}</span> : <span><b>Dimensions:</b> N/A</span>}<br/>
-                    </Card.Text>
+                    {data?.primaryImage && <Card.Img src={data?.primaryImage}/>}<br />
+                    <Container>
+                        {data?.title ? <Card.Title>{data?.title}</Card.Title> : <Card.Title>N/A</Card.Title>}
+                        <Card.Text>
+                            {data?.objectDate ? <span><b>Date:</b> {data?.objectDate}</span> : <span><b>Date:</b> N/A</span>}<br/>
+                            {data?.classification ? <span><b>Classification:</b> {data?.classification}</span> : <span><b>Classification:</b> N/A</span>}<br/>
+                            {data?.medium ? <span><b>Medium:</b> {data?.medium}</span> : <span><b>Medium:</b> N/A</span>}<br /><br/>
+                            {data?.artistDisplayName ? <span><b>Artist:</b> {data?.artistDisplayName} (<a href={data?.artistWikidata_URL} target="_blank" rel="noreferrer" >wiki</a>)</span> : <span><b>Artist:</b> N/A</span>}<br/>
+                            {data?.creditLine ? <span><b>Credit Line:</b> {data?.creditLine}</span> : <span><b>Credit Line:</b> N/A</span>}<br/>
+                            {data?.dimensions ? <span><b>Dimensions:</b> {data?.dimensions}</span> : <span><b>Dimensions:</b> N/A</span>}<br/>
+                        </Card.Text>
+                    </Container><br />
                 </Card>
             </>
         )
