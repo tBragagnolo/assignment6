@@ -1,4 +1,6 @@
-export default function ArtworkCard(){
+import Error from "next/error"
+
+export default function ArtworkCard(props){
     return(
         <>
             
