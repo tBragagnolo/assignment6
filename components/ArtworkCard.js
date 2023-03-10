@@ -17,8 +17,8 @@ export default function ArtworkCard(props){
                     {data?.primaryImageSmall ? <Card.Img src={data?.primaryImageSmall}/> : <Card.Img src="https://via.placeholder.com/375x375.png?text=[+Not+Available+]"/>}
                     {data?.title ? <Card.Title>{data?.title}</Card.Title> : <Card.Title>N/A</Card.Title>}
                     <Card.Text>
-                        {data?.objectDate ? <span><strong>Date:</strong> {data?.objectDate}</span> : <span><strong>Date:</strong> N/A</span>}
-                        {data?.classification ? <span><strong>Classification:</strong> {data?.classification}</span> : <span><strong>Classification:</strong> N/A</span>}
+                        {data?.objectDate ? <span><strong>Date:</strong> {data?.objectDate}</span> : <span><strong>Date:</strong> N/A</span>}<br/>
+                        {data?.classification ? <span><strong>Classification:</strong> {data?.classification}</span> : <span><strong>Classification:</strong> N/A</span>}<br/>
                         {data?.medium ? <span><strong>Medium:</strong> {data?.medium}</span> : <span><strong>Medium:</strong> N/A</span>}
                     </Card.Text>
                     <Button passHref={<Link href="/artwork/"></Link>}>{data?.objectID}</Button>
