@@ -5,8 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Link from "next/link";
 
 export default function ArtworkCard(props){
-    const {data, error} = useSWR();
-    //374686
+    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/811044`);
+    //811044
 
     if(error){ return <Error statusCode={404} /> }
 
