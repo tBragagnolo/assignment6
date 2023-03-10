@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import ArtworkCardDetail from "@/components/ArtworkCardDetail";
+import { Row, Col } from "react-bootstrap";
 
 export default function ArtworkByld(){
     const router = useRouter();
