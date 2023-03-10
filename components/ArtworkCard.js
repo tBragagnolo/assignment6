@@ -7,7 +7,6 @@ import { Container } from "react-bootstrap";
 
 export default function ArtworkCard(props){
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
-    //811044
 
     var btnURL = "/artwork/" + props.objectID;
 
@@ -37,9 +36,9 @@ export default function ArtworkCard(props){
     else{ return null }
 }
 
-function ArtworkCardDetail(){
-    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/811044`);
-    //811044
+function ArtworkCardDetail(props){
+    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
+    //10496
 
     if(error){ return <Error statusCode={404} /> }
 
