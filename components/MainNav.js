@@ -25,7 +25,7 @@ export default function MainNav(){
                         </Form>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar><br /><br />
         </>
     );
 }
