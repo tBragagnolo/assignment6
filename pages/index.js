@@ -20,7 +20,7 @@ export default function Home() {
           The Fifth Avenue building opened on March 30, 1880. In 2021, despite the COVID-19 pandemic in New York City, the museum attracted 1,958,000 visitors, ranking fourth on the list of 
           most-visited art museums in the world.
           <br /><br />
-          
+          <a href="https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art</a>
         </Col>
       </Row>
     </>
