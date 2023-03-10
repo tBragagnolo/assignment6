@@ -1,4 +1,4 @@
-import userSWR from "swr"
+import useSWR from "swr"
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -9,5 +9,5 @@ export default function Artwork(){
     const router = useRouter();
     let finalQuery = router.asPath.split('?')[1];
 
-    
+    const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/search?${finalQuery}`);
 }
