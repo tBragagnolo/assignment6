@@ -23,7 +23,9 @@ export default function ArtworkCard(props){
                             {data?.classification ? <span><b>Classification:</b> {data?.classification}</span> : <span><b>Classification:</b> N/A</span>}<br/>
                             {data?.medium ? <span><b>Medium:</b> {data?.medium}</span> : <span><b>Medium:</b> N/A</span>}
                         </Card.Text>
-                        <Button variant="outline-dark" passHref={<Link href="/artwork/"></Link>}><b>ID:</b> {data?.objectID}</Button>
+                        <Link href="/artwork/" passHref>
+                            <Button variant="outline-dark"><b>ID:</b> {data?.objectID}</Button>
+                        </Link>
                     </Container><br />
                 </Card>
             </>
