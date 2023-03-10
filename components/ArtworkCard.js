@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 export default function ArtworkCard(props){
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
 
-    var btnURL = "/artwork/" + props.objectID;
+    const btnURL = "/artwork/" + props.objectID;
 
     if(error){ return <Error statusCode={404} /> }
 
