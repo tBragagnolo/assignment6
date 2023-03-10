@@ -2,7 +2,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Form } from 'react-bootstrap';
-import Button from 'react-bootstrap';
 
 export default function MainNav(){
     return (
@@ -23,7 +22,6 @@ export default function MainNav(){
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-success">Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
