@@ -13,6 +13,7 @@ export default function ArtworkCard(props){
             <>
                 <Card>
                     {data?.primaryImageSmall ? <Card.Img src={data?.primaryImageSmall}/> : <Card.Img src="https://via.placeholder.com/375x375.png?text=[+Not+Available+]"/>}
+                    {data?.title ? <Card.Title>{data?.title}</Card.Title> : <Card.Title>N/A</Card.Title>}
                     
                 </Card>
             </>
