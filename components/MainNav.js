@@ -16,7 +16,7 @@ export default function MainNav(){
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/search">Advanced Search</Nav.Link>
                         </Nav>
-                        <Form className="d-flex" onSubmit="/">
+                        <Form className="d-flex" onSubmit="/seach">
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
