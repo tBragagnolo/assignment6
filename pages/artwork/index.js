@@ -5,6 +5,7 @@ import Error from "next/error";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Pagination } from "react-bootstrap";
+import ArtworkCard from "@/components/ArtworkCard";
 
 export default function Artwork(){
     const PER_PAGE = 12;
@@ -29,7 +30,7 @@ export default function Artwork(){
 
     useEffect(()=>{
         if(data){
-            let results;
+            let results = [];
 
             for (let i = 0; i < data?.objectIDs?.length; i += PER_PAGE) {
                 const chunk = data?.objectIDs.slice(i, i + PER_PAGE);
@@ -48,9 +49,9 @@ export default function Artwork(){
             return(
                 <>
                     <Row className="gy-4">
-                        {artworkList[page - 1].map(m =>{
-                            <Col lg={3} key={currentObjectID}><ArtworkCard objectID={m.objectID} /></Col>
-                        })}
+                        {artworkList[page - 1].map(m =>(
+                            <Col lg={3} key={m.objectID}><ArtworkCard objectID={m.objectID} /></Col>
+                        ))}
                     </Row> 
                     <Pagination>
                         <Pagination.Prev onClick={previous} />

@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { InputGroup } from 'react-bootstrap';
 
 export default function MainNav(){
     return (
@@ -16,7 +17,7 @@ export default function MainNav(){
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/search">Advanced Search</Nav.Link>
                         </Nav>
-                        <Form className="d-flex" action="/artwork?title=true&q=mountain">
+                        <Form className="d-flex" action="/artwork/10496">
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
