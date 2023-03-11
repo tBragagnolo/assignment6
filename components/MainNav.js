@@ -16,14 +16,14 @@ export default function MainNav(){
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/search">Advanced Search</Nav.Link>
                         </Nav>
-                        <Form className="d-flex">
+                        <Form className="d-flex" onSubmit="/">
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="success">Search</Button>
+                            <Button variant="success" type="submit">Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
