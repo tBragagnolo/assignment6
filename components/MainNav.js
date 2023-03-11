@@ -2,10 +2,24 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import Button from 'react-bootstrap/Button';
 import { InputGroup } from 'react-bootstrap';
 
 export default function MainNav(){
+    const {register, handleSubmit} = useForm({
+        defaultValues:{
+            searchInput: "",
+        },
+    });
+
+    function submitForm(input){
+        const router = useRouter();
+        let url = "/artwork?title=true&q=" + input.searchInput;
+
+        router.push(url);
+    }
+
     return (
         <>
             <Navbar className="fixed-top" bg="dark" variant="dark">
