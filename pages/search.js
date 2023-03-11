@@ -1,8 +1,25 @@
 import { Form } from "react-bootstrap"
 import { Row, Col } from "react-bootstrap"
-import Button from "react-bootstrap"
+import { Button } from "react-bootstrap"
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
 export default function AdvancedSearch(){
+    const router = useRouter();
+
+    function submitForm(data){
+        let url = "/artwork?";
+        let queryString = data.searchBy + "=true";
+        queryString += "&geoLocation=" + data.geoLocation;
+        queryString += "&medium=" + data.medium;
+        queryString += "&isOnView=" + data.isOnView;
+        queryString += "&isHighlight=" + data.isHighlight;
+        queryString += "&q=" + data.q;
+        url += queryString;
+
+        router.push(url);
+    }
+
     return(
         <> 
             <Form>
@@ -59,7 +76,7 @@ export default function AdvancedSearch(){
                 <Row>
                     <Col>
                     <br />
-                    <Button variant="primary" type="submit">
+                    <Button variant="dark" type="submit">
                         Submit
                     </Button>
                     </Col>
