@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import Button from 'react-bootstrap/Button';
@@ -13,8 +14,9 @@ export default function MainNav(){
         },
     });
 
+    const router = useRouter();
+
     function submitForm(input){
-        const router = useRouter();
         let url = "/artwork?title=true&q=" + input.searchInput;
 
         router.push(url);
