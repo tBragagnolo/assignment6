@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Error from "next/error";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { Pagination } from "react-bootstrap";
 
 export default function Artwork(){
     const PER_PAGE = 12;
@@ -51,6 +52,11 @@ export default function Artwork(){
                             <Col lg={3} key={currentObjectID}><ArtworkCard objectID={m.objectID} /></Col>
                         })}
                     </Row> 
+                    <Pagination>
+                        <Pagination.Prev onClick={previous} />
+                        <Pagination.Item>{page}</Pagination.Item>
+                        <Pagination.Next onClick={next} />
+                    </Pagination>
                 </>
             )
         }
