@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Pagination } from "react-bootstrap";
 import ArtworkCard from "@/components/ArtworkCard";
+import { Container } from "react-bootstrap";
 
 export default function Artwork(){
     const PER_PAGE = 12;
@@ -50,8 +51,7 @@ export default function Artwork(){
                 <>
                     <Row className="gy-4">
                         {artworkList[page - 1].map(m =>(
-                            <p>{m?.objectID}</p>
-                            //<Col lg={3} key={m?.objectID}><ArtworkCard objectID={m?.objectID} /></Col>
+                            <Col lg={3} key={m}><ArtworkCard objectID={m} /></Col>
                         ))}
                     </Row> 
                     <Pagination>
@@ -67,8 +67,11 @@ export default function Artwork(){
                 <>
                     <Row className="gy-4">
                         <Card>
-                            <h4>Nothing Here</h4>
-                            <span>Try searching something else</span>
+                            <Container>
+                                <br />
+                                <h4>Nothing Here</h4>
+                                <span>Try searching something else</span>
+                            </Container><br />
                         </Card>
                     </Row>
                 </>
