@@ -31,12 +31,13 @@ export default function MainNav(){
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/search">Advanced Search</Nav.Link>
                         </Nav>
-                        <Form className="d-flex" action="/artwork/10496">
+                        <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
                                 className="me-2"
                                 aria-label="Search"
+                                {...register("searchInput")}
                             />
                             <Button variant="success" type="submit">Search</Button>
                         </Form>
