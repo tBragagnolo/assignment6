@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 export default function AdvancedSearch(){
     const router = useRouter();
-    const {register, handleSubmit} = useForm({
+    const {register, handleSubmit, formState:{errors}} = useForm({
         defaultValues:{
             searchBy: "",
             geoLocation: "",
@@ -37,7 +37,7 @@ export default function AdvancedSearch(){
                     <Col>
                     <Form.Group className="mb-3">
                         <Form.Label>Search Query</Form.Label>
-                        <Form.Control type="text" placeholder="" name="q" {...register("q")}/>
+                        <Form.Control className={errors.q && "is-invalid"} type="text" placeholder="" name="q" {...register("q", {required: true})}/>
                     </Form.Group>
                     </Col>
                 </Row>
