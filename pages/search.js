@@ -32,7 +32,7 @@ export default function AdvancedSearch(){
 
     return(
         <> 
-            <Form>
+            <Form onSubmit={handleSubmit(submitForm)}>
                 <Row>
                     <Col>
                     <Form.Group className="mb-3">
