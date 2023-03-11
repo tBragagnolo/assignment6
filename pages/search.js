@@ -11,8 +11,8 @@ export default function AdvancedSearch(){
             searchBy: "",
             geoLocation: "",
             medium: "",
-            isOnView: "",
-            isHighlight: "",
+            isOnView: false,
+            isHighlight: false,
             q: "",
         },
     });
@@ -75,11 +75,13 @@ export default function AdvancedSearch(){
                         type="checkbox"
                         label="Highlighted"
                         name="isHighlight"
+                        {...register("isHighlight")}
                     />
                     <Form.Check
                         type="checkbox"
                         label="Currently on View"
                         name="isOnView"
+                        {...register("isOnView")}
                     />
                     </Col>
                 </Row>
