@@ -43,19 +43,29 @@ export default function Artwork(){
     if(error){ return <Error statusCode={404} /> }
 
     if(artworkList){
-        return(
-            <>
-                <Row className="gy-4">
-                    {artworkList.length>0 ? artworkList[page - 1].map(m =>{
-                        <Col lg={3} key={currentObjectID}><ArtworkCard objectID={m.objectID} /></Col>
-                    }): <Card>
+        if(artworkList.length > 0){
+            return(
+                <>
+                    <Row className="gy-4">
+                        {artworkList[page - 1].map(m =>{
+                            <Col lg={3} key={currentObjectID}><ArtworkCard objectID={m.objectID} /></Col>
+                        })}
+                    </Row> 
+                </>
+            )
+        }
+        else{
+            return(
+                <>
+                    <Row className="gy-4">
+                        <Card>
                             <h4>Nothing Here</h4>
                             <span>Try searching something else</span>
                         </Card>
-                    }    
-                </Row>
-                
-            </>
-        )
+                    </Row>
+                </>
+            ) 
+        }
     }
+    else{ return null }
 }
