@@ -50,7 +50,8 @@ export default function Artwork(){
                 <>
                     <Row className="gy-4">
                         {artworkList[page - 1].map(m =>(
-                            <Col lg={3} key={m.objectID}><ArtworkCard objectID={m.objectID} /></Col>
+                            <p>{m?.objectID}</p>
+                            //<Col lg={3} key={m?.objectID}><ArtworkCard objectID={m?.objectID} /></Col>
                         ))}
                     </Row> 
                     <Pagination>
