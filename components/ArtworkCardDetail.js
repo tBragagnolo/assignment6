@@ -11,9 +11,7 @@ import { favouritesAtom } from "@/store";
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
 
-    const [showAdded, setShowAdded] = useState();
-    if(favouritesList.includes(props.objectID)){ setShowAdded(true); }
-    else{ setShowAdded(false); }
+    const [showAdded, setShowAdded] = useState(favouritesList.includes(props.objectID));
 
     function favouritesClicked(){
         if(showAdded == true){
@@ -21,8 +19,9 @@ export default function ArtworkCardDetail(props){
             setShowAdded(false);
         }
         else{
-            setFavouritesList(current => [...current, props.objectID]);
+            setFavouritesList([...favouritesList, 12]);
             setShowAdded(true);
+            console.log(favouritesList);
         }
     }
 
@@ -44,7 +43,7 @@ export default function ArtworkCardDetail(props){
                             {data?.artistDisplayName ? <span><b>Artist:</b> {data?.artistDisplayName} (<a href={data?.artistWikidata_URL} target="_blank" rel="noreferrer" >wiki</a>)</span> : <span><b>Artist:</b> N/A</span>}<br/>
                             {data?.creditLine ? <span><b>Credit Line:</b> {data?.creditLine}</span> : <span><b>Credit Line:</b> N/A</span>}<br/>
                             {data?.dimensions ? <span><b>Dimensions:</b> {data?.dimensions}</span> : <span><b>Dimensions:</b> N/A</span>}<br/><br/>
-                            {showAdded ? <Button variant="primary" onClick={favouritesClicked}>+ Favourites</Button> : <Button variant="outline-primary" onClick={favouritesClicked}>+ Favourites</Button>}<br/>
+                            {showAdded ? <Button variant="primary" onClick={favouritesClicked}>+ Favourite (added)</Button> : <Button variant="outline-primary" onClick={favouritesClicked}>+ Favourite</Button>}<br/>
                         </Card.Text>
                     </Container><br />
                 </Card>
