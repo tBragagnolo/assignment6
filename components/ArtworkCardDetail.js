@@ -11,7 +11,7 @@ import { favouritesAtom } from "@/store";
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
     var found = favouritesList.includes(Number(props.objectID));
-    console.log("Object ID:", props.objectID, "Favs:", favouritesList, "Found:", found);
+    console.log("Object ID:", props.objectID, "Favs:", favouritesList, "Found:", found); //For testing
 
     const [showAdded, setShowAdded] = useState(found);
 
