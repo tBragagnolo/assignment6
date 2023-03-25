@@ -10,8 +10,16 @@ import { favouritesAtom } from "@/store";
 
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
+    var found = false;
+    for(let i = 0; i < favouritesList.length; i++){
+        console.log(favouritesList[i], Number(props.objectID));
+        if(favouritesList[i] === Number(props.objectID)){
+            found == true;
+        }
+    }
+    console.log("Object ID:", props.objectID, "Favs:", favouritesList, "Found:", found);
 
-    const [showAdded, setShowAdded] = useState(favouritesList.includes(props.objectID));
+    const [showAdded, setShowAdded] = useState(found);
 
     function favouritesClicked(){
         if(showAdded == true){
@@ -19,7 +27,7 @@ export default function ArtworkCardDetail(props){
             setShowAdded(false);
         }
         else{
-            setFavouritesList([...favouritesList, 12]);
+            setFavouritesList([...favouritesList, Number(props.objectID)]);
             setShowAdded(true);
             console.log(favouritesList);
         }
