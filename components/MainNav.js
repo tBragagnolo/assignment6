@@ -4,10 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { InputGroup } from 'react-bootstrap';
 
 export default function MainNav(){
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const {register, handleSubmit} = useForm({
         defaultValues:{
             searchInput: "",
@@ -18,13 +21,14 @@ export default function MainNav(){
 
     function submitForm(input){
         let url = "/artwork?title=true&q=" + input.searchInput;
+        setIsExpanded(false);
 
         router.push(url);
     }
 
     return (
         <>
-            <Navbar className="fixed-top" bg="dark" variant="dark">
+            <Navbar expanded={isExpanded} className="fixed-top" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand>Tom Bragagnolo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
