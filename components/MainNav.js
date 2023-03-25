@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { InputGroup } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 
 export default function MainNav(){
     const [isExpanded, setIsExpanded] = useState(false);
@@ -47,6 +48,11 @@ export default function MainNav(){
                             />
                             <Button variant="success" type="submit">Search</Button>
                         </Form>
+                        <Nav>
+                            <NavDropdown title="User Name" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/favourites">Favourites</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar><br /><br />
