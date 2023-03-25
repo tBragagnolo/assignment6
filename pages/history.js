@@ -33,7 +33,9 @@ export default function History(){
     if(parsedHistory.length > 0){
         return(
             <>
-                <h1>Hello</h1>
+                <ListGroup>
+                    
+                </ListGroup>
             </>
         )
     }

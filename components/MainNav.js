@@ -59,6 +59,7 @@ export default function MainNav(){
                         <Nav>
                             <NavDropdown title="User Name" id="basic-nav-dropdown">
                                 <Link href="/favourites" passHref legacyBehavior><NavDropdown.Item>Favourites</NavDropdown.Item></Link>
+                                <Link href="/history" passHref legacyBehavior><NavDropdown.Item>Search History</NavDropdown.Item></Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
