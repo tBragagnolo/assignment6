@@ -43,8 +43,8 @@ export default function MainNav(){
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Link href="/" passHref legacyBehavior><Nav.Link>Home</Nav.Link></Link>
-                            <Link href="/search" passHref legacyBehavior><Nav.Link>Advanced Search</Nav.Link></Link>
+                            <Link href="/" passHref legacyBehavior><Nav.Link active={router.pathname === "/"}>Home</Nav.Link></Link>
+                            <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"}>Advanced Search</Nav.Link></Link>
                         </Nav>
                         <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
                             <Form.Control
@@ -58,8 +58,8 @@ export default function MainNav(){
                         </Form>
                         <Nav>
                             <NavDropdown title="User Name" id="basic-nav-dropdown">
-                                <Link href="/favourites" passHref legacyBehavior><NavDropdown.Item>Favourites</NavDropdown.Item></Link>
-                                <Link href="/history" passHref legacyBehavior><NavDropdown.Item>Search History</NavDropdown.Item></Link>
+                                <Link href="/favourites" passHref legacyBehavior><NavDropdown.Item active={router.pathname === "/favourites"}>Favourites</NavDropdown.Item></Link>
+                                <Link href="/history" passHref legacyBehavior><NavDropdown.Item active={router.pathname === "/history"}>Search History</NavDropdown.Item></Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
