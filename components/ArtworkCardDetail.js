@@ -10,10 +10,21 @@ import { favouritesAtom } from "@/store";
 
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
-    
+
     const [showAdded, setShowAdded] = useState();
     if(favouritesList.includes(props.objectID)){ setShowAdded(true); }
     else{ setShowAdded(false); }
+
+    function favouritesClicked(){
+        if(showAdded == true){
+            setFavouritesList(current => current.filter(fav => fav != props.objectID));
+            setShowAdded(false);
+        }
+        else{
+            setFavouritesList(current => [...current, props.objectID]);
+            setShowAdded(true);
+        }
+    }
 
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
 
