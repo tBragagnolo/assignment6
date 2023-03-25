@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from "next/link";
 import { Container } from "react-bootstrap";
+import { useState } from "react";
+import { useAtom } from "jotai";
+import { favouritesAtom } from "@/store";
 
 export default function ArtworkCardDetail(props){
     const {data, error} = useSWR(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.objectID}`);
-    //10496
 
     if(error){ return <Error statusCode={404} /> }
 
