@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { InputGroup } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
+import Link from 'next/link';
 
 export default function MainNav(){
     const [isExpanded, setIsExpanded] = useState(false);
@@ -35,8 +36,8 @@ export default function MainNav(){
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/search">Advanced Search</Nav.Link>
+                            <Link href="/" passHref legacyBehavior><Nav.Link>Home</Nav.Link></Link>
+                            <Link href="/search" passHref legacyBehavior><Nav.Link>Advanced Search</Nav.Link></Link>
                         </Nav>
                         <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
                             <Form.Control
