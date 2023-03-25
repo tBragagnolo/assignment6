@@ -2,6 +2,7 @@ import { useAtom } from "jotai"
 import { searchHistoryAtom } from "@/store"
 import { useRouter } from "next/router";
 import { ListGroup } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 
 export default function History(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
@@ -34,7 +35,12 @@ export default function History(){
         return(
             <>
                 <ListGroup>
-                    
+                    {parsedHistory.map((m, index) =>(
+                        <ListGroup.Item onClick={e => historyClicked(e, index)}>
+                            {Object.keys(m).map(key => (<>{key}: <strong>{m[key]}</strong>&nbsp;</>))}
+                            <Button className="float-end" variant="danger" size="sm" onClick={e => removeHistoryClicked(e, index)}>&times;</Button>
+                        </ListGroup.Item>
+                    ))}
                 </ListGroup>
             </>
         )
