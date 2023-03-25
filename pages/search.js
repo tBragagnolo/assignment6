@@ -3,8 +3,12 @@ import { Row, Col } from "react-bootstrap"
 import { Button } from "react-bootstrap"
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { useAtom } from "jotai";
+import { searchHistoryAtom } from "@/store";
 
 export default function AdvancedSearch(){
+    const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
+
     const router = useRouter();
     const {register, handleSubmit, formState:{errors}} = useForm({
         defaultValues:{
@@ -26,6 +30,8 @@ export default function AdvancedSearch(){
         queryString += "&isHighlight=" + data.isHighlight;
         queryString += "&q=" + data.q;
         url += queryString;
+
+        setSearchHistory(current => [...current, queryString]);
 
         router.push(url);
     }
