@@ -15,15 +15,15 @@ export default function Favourites(){
     else{
         return(
             <>
-                    <Row className="gy-4">
-                        <Card>
-                            <Container>
-                                <br />
-                                <h4>Nothing Here</h4>
-                                <span>Try searching something else</span>
-                            </Container><br />
-                        </Card>
-                    </Row> 
+                <Row className="gy-4">
+                    <Card>
+                        <Container>
+                            <br />
+                            <h4>Nothing Here</h4>
+                            <span>Try searching something else</span>
+                        </Container><br />
+                    </Card>
+                </Row> 
             </>
         )
     }
