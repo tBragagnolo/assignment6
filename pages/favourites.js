@@ -3,6 +3,7 @@ import { favouritesAtom } from "@/store"
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import ArtworkCard from "@/components/ArtworkCard";
 
 export default function Favourites(){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
