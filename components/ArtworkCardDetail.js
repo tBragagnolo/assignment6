@@ -43,7 +43,8 @@ export default function ArtworkCardDetail(props){
                             {data?.medium ? <span><b>Medium:</b> {data?.medium}</span> : <span><b>Medium:</b> N/A</span>}<br /><br/>
                             {data?.artistDisplayName ? <span><b>Artist:</b> {data?.artistDisplayName} (<a href={data?.artistWikidata_URL} target="_blank" rel="noreferrer" >wiki</a>)</span> : <span><b>Artist:</b> N/A</span>}<br/>
                             {data?.creditLine ? <span><b>Credit Line:</b> {data?.creditLine}</span> : <span><b>Credit Line:</b> N/A</span>}<br/>
-                            {data?.dimensions ? <span><b>Dimensions:</b> {data?.dimensions}</span> : <span><b>Dimensions:</b> N/A</span>}<br/>
+                            {data?.dimensions ? <span><b>Dimensions:</b> {data?.dimensions}</span> : <span><b>Dimensions:</b> N/A</span>}<br/><br/>
+                            {showAdded ? <Button variant="primary" onClick={favouritesClicked}>+ Favourites</Button> : <Button variant="outline-primary" onClick={favouritesClicked}>+ Favourites</Button>}<br/>
                         </Card.Text>
                     </Container><br />
                 </Card>
