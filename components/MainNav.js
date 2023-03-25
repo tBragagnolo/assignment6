@@ -25,9 +25,13 @@ export default function MainNav(){
     const router = useRouter();
 
     function submitForm(input){
-        let url = "/artwork?title=true&q=" + input.searchInput;
+        let url = "/artwork?";
+        let query = "title=true&q=" + input.searchInput;
         setIsExpanded(false);
 
+        setSearchHistory(current => [...current, query]);
+
+        url += query;
         router.push(url);
     }
 
