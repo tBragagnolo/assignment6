@@ -51,7 +51,7 @@ export default function MainNav(){
                         </Form>
                         <Nav>
                             <NavDropdown title="User Name" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/favourites">Favourites</NavDropdown.Item>
+                                <Link href="/favourites" passHref legacyBehavior><NavDropdown.Item>Favourites</NavDropdown.Item></Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
