@@ -20,7 +20,7 @@ export default function Favourites(){
                         <Container>
                             <br />
                             <h4>Nothing Here</h4>
-                            <span>Try searching something else</span>
+                            <span>Try adding some new artwork to the list</span>
                         </Container><br />
                     </Card>
                 </Row> 
