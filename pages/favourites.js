@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 export default function Favourites(){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
 
-    if(favouritesList.lenght == 0){
+    if(favouritesList.lenght > 0){
         return(
             <>
                 <h1>Favourites</h1>
