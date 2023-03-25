@@ -9,8 +9,11 @@ import Button from 'react-bootstrap/Button';
 import { InputGroup } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
+import { useAtom } from 'jotai';
+import { searchHistoryAtom } from '@/store';
 
 export default function MainNav(){
+    const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
     const [isExpanded, setIsExpanded] = useState(false);
 
     const {register, handleSubmit} = useForm({
