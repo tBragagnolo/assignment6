@@ -3,6 +3,7 @@ import { searchHistoryAtom } from "@/store"
 import { useRouter } from "next/router";
 import { ListGroup } from "react-bootstrap";
 import { Row, Col, Card, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default function History(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
