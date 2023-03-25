@@ -1,5 +1,6 @@
 import { useAtom } from "jotai"
 import { favouritesAtom } from "@/store"
+import { Row, Col } from "react-bootstrap";
 
 export default function Favourites(){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
@@ -14,7 +15,15 @@ export default function Favourites(){
     else{
         return(
             <>
-                  
+                    <Row className="gy-4">
+                        <Card>
+                            <Container>
+                                <br />
+                                <h4>Nothing Here</h4>
+                                <span>Try searching something else</span>
+                            </Container><br />
+                        </Card>
+                    </Row> 
             </>
         )
     }
