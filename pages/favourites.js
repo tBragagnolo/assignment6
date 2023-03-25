@@ -10,7 +10,11 @@ export default function Favourites(){
     if(favouritesList.length > 0){
         return(
             <>
-                <h1>Favourites</h1>
+                <Row className="gy-4">
+                    {favouritesList.map(m =>(
+                        <Col lg={3} key={m}><ArtworkCard objectID={m} /></Col>
+                    ))}
+                </Row> 
             </>
         )
     }
