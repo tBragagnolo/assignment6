@@ -40,11 +40,11 @@ export default function MainNav(){
             <Navbar expanded={isExpanded} className="fixed-top" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand>Tom Bragagnolo</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={setIsExpanded(!isExpanded)}/>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Link href="/" passHref legacyBehavior><Nav.Link active={router.pathname === "/"} onClick={setIsExpanded(false)}>Home</Nav.Link></Link>
-                            <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"} onClick={setIsExpanded(false)}>Advanced Search</Nav.Link></Link>
+                            <Link href="/" passHref legacyBehavior><Nav.Link active={router.pathname === "/"}>Home</Nav.Link></Link>
+                            <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"}>Advanced Search</Nav.Link></Link>
                         </Nav>
                         <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
                             <Form.Control
