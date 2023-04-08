@@ -40,7 +40,7 @@ export default function History(){
     if(parsedHistory.length > 0){
         return(
             <>
-                <ListGroup>
+                <ListGroup key={index}>
                     {parsedHistory.map((m, index) =>(
                         <ListGroup.Item className={styles.historyListItem} onClick={e => historyClicked(e, index)}>
                             {Object.keys(m).map(key => (<>{key}: <strong>{m[key]}</strong>&nbsp;</>))}
