@@ -5,17 +5,24 @@ import Card from 'react-bootstrap/Card';
 import Link from "next/link";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { favouritesAtom } from "@/store";
+import { addToFavourites, removeFromFavourites } from "@/lib/userData";
 
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
     var found = favouritesList.includes(Number(props.objectID));
     console.log("Object ID:", props.objectID, "Favs:", favouritesList, "Found:", found); //For testing
 
-    const [showAdded, setShowAdded] = useState(found);
+    const [showAdded, setShowAdded] = useState(false);
 
-    function favouritesClicked(){
+    useEffect(()=>{
+        setShowAdded(favouritesList?.includes(objectID))
+    }, [favouritesList]);
+    
+
+    async function favouritesClicked(){
         if(showAdded == true){
             setFavouritesList(current => current.filter(fav => fav != props.objectID));
             setShowAdded(false);
