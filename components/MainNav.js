@@ -55,9 +55,15 @@ export default function MainNav(){
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Link href="/" passHref legacyBehavior><Nav.Link active={router.pathname === "/"}>Home</Nav.Link></Link>
-                            <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"}>Advanced Search</Nav.Link></Link>
+                            {token && <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"}>Advanced Search</Nav.Link></Link>}
                         </Nav>
-                        <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
+                        {!token &&
+                           <Nav>
+                                <Link href="/register" passHref legacyBehavior><Nav.Link active={router.pathname === "/register"}>Register</Nav.Link></Link>
+                                <Link href="/login" passHref legacyBehavior><Nav.Link active={router.pathname === "/login"}>Login</Nav.Link></Link>
+                           </Nav> 
+                        }
+                        {token && <Form className="d-flex" onSubmit={handleSubmit(submitForm)}>
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
@@ -66,12 +72,13 @@ export default function MainNav(){
                                 {...register("searchInput")}
                             />
                             <Button variant="success" type="submit">Search</Button>
-                        </Form>
+                        </Form>}
                         <Nav>
-                            <NavDropdown title="User Name" id="basic-nav-dropdown">
+                            {token && <NavDropdown title={token.userName} id="basic-nav-dropdown">
                                 <Link href="/favourites" passHref legacyBehavior><NavDropdown.Item active={router.pathname === "/favourites"}>Favourites</NavDropdown.Item></Link>
                                 <Link href="/history" passHref legacyBehavior><NavDropdown.Item active={router.pathname === "/history"}>Search History</NavDropdown.Item></Link>
-                            </NavDropdown>
+                                <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                            </NavDropdown>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
