@@ -1,13 +1,15 @@
 /*********************************************************************************
-*  BTI425 – Assignment 5
-*  I declare that this assignment is my own work in accordance with Seneca Academic Policy.  
-*  No part of this assignment has been copied manually or electronically from any other source
-*  (including web sites) or distributed to other students.
+*  BTI425 – Assignment 06
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or 
+*  distributed to other students.
 * 
-*  Name: Tom Bragagnolo Student ID: 139157218 Date: March 24, 2023
+*  Name: Tom Bragagnolo Student ID: 139157218 Date: April 8, 2023
 *
+*  Vercel App (Deployed) Link: https://assignment6-pa3f4bf11-tbragagnolo.vercel.app/
 *
 ********************************************************************************/ 
+ 
 
 
 import Image from 'react-bootstrap/Image'
