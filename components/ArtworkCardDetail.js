@@ -12,8 +12,7 @@ import { addToFavourites, removeFromFavourites } from "@/lib/userData";
 
 export default function ArtworkCardDetail(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
-    var found = favouritesList.includes(Number(props.objectID));
-    console.log("Object ID:", props.objectID, "Favs:", favouritesList, "Found:", found); //For testing
+    //var found = favouritesList.includes(Number(props.objectID));
 
     const [showAdded, setShowAdded] = useState(false);
 
@@ -24,11 +23,13 @@ export default function ArtworkCardDetail(props){
 
     async function favouritesClicked(){
         if(showAdded == true){
-            setFavouritesList(current => current.filter(fav => fav != props.objectID));
+            //setFavouritesList(current => current.filter(fav => fav != props.objectID));
+            setFavouritesList(await removeFromFavourites(props.objectID)) 
             setShowAdded(false);
         }
         else{
-            setFavouritesList([...favouritesList, Number(props.objectID)]);
+            //setFavouritesList([...favouritesList, Number(props.objectID)]);
+            setFavouritesList(await addToFavourites(props.objectID))
             setShowAdded(true);
         }
     }
