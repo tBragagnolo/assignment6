@@ -24,7 +24,7 @@ export default function Register(props){
   return (
     <>
       <Card bg="light">
-        <Card.Body><h2>Login</h2>Enter your login information below:</Card.Body>
+        <Card.Body><h2>Register</h2>Register for account:</Card.Body>
       </Card>
       { warning ? ( <><br /><Alert variant="danger">{warning}</Alert></> ) : <br/>}
       <Form onSubmit={handleSubmit}>
@@ -36,7 +36,11 @@ export default function Register(props){
           <Form.Label>Password:</Form.Label><Form.Control type="password" value={password} id="password" name="password" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
         <br />
-        <Button variant="primary" className="pull-right" type="submit">Login</Button>
+        <Form.Group>
+          <Form.Label>Confirm Password:</Form.Label><Form.Control type="password" value={password2} id="password2" name="password2" onChange={e => setPassword2(e.target.value)} />
+        </Form.Group>
+        <br/>
+        <Button variant="primary" className="pull-right" type="submit">Register</Button>
       </Form>
     </>
   );
