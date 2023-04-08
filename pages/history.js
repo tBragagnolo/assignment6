@@ -5,6 +5,7 @@ import { ListGroup } from "react-bootstrap";
 import { Row, Col, Card, Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import styles from '@/styles/History.module.css';
+import { removeFromHistory } from "@/lib/userData";
 
 export default function History(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
@@ -25,13 +26,15 @@ export default function History(){
         router.push(url);
     }
 
-    function removeHistoryClicked(e, index){
+    async function removeHistoryClicked(e, index){
         e.stopPropagation(); 
-        setSearchHistory(current => {
-            let x = [...current];
-            x.splice(index, 1)
-            return x;
-        });
+        // setSearchHistory(current => {
+        //     let x = [...current];
+        //     x.splice(index, 1)
+        //     return x;
+        // });
+
+        setSearchHistory(await removeFromHistory(searchHistory[index])) 
     }
 
     if(parsedHistory.length > 0){
