@@ -12,10 +12,13 @@ import Link from 'next/link';
 import { useAtom } from 'jotai';
 import { searchHistoryAtom } from '@/store';
 import { addToHistory } from '@/lib/userData';
+import { readToken, removeToken } from '@/lib/authenticate';
 
 export default function MainNav(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
     const [isExpanded, setIsExpanded] = useState(false);
+
+    let token = readToken();
 
     const {register, handleSubmit} = useForm({
         defaultValues:{
@@ -24,6 +27,12 @@ export default function MainNav(){
     });
 
     const router = useRouter();
+
+    function logout(){
+        setIsExpanded(false);
+        removeToken();
+        router.push("/login");
+    }
 
     async function submitForm(input){
         let url = "/artwork?";
