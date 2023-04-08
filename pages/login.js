@@ -1,4 +1,4 @@
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Alert, Button } from "react-bootstrap";
 import { useState } from 'react';
 import { authenticateUser } from '@/lib/authenticate';
 import { useRouter } from 'next/router';
@@ -24,7 +24,7 @@ export default function Login(props){
       <Card bg="light">
         <Card.Body><h2>Login</h2>Enter your login information below:</Card.Body>
       </Card>
-      <br />
+      { warning ? ( <><br /><Alert variant="danger">{warning}</Alert></> ) : <br/>}
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>User:</Form.Label><Form.Control type="text" value={user} id="userName" name="userName" onChange={e => setUser(e.target.value)} />
