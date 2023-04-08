@@ -4,12 +4,16 @@ import { authenticateUser } from '@/lib/authenticate';
 import { useRouter } from 'next/router';
 import { useAtom } from "jotai";
 import { favouritesAtom, searchHistoryAtom } from "@/store";
+import { getFavourites, getHistory } from "@/lib/userData";
 
 export default function Login(props){
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [warning, setWarning] = useState('');
     const router = useRouter();
+    
+    const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
+    const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
 
     async function handleSubmit(e) {
         e.preventDefault();
