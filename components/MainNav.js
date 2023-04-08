@@ -11,6 +11,7 @@ import { NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
 import { useAtom } from 'jotai';
 import { searchHistoryAtom } from '@/store';
+import { addToHistory } from '@/lib/userData';
 
 export default function MainNav(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
@@ -24,12 +25,13 @@ export default function MainNav(){
 
     const router = useRouter();
 
-    function submitForm(input){
+    async function submitForm(input){
         let url = "/artwork?";
         let query = "title=true&q=" + input.searchInput;
         setIsExpanded(false);
 
-        setSearchHistory(current => [...current, query]);
+        //setSearchHistory(current => [...current, query]);
+        setSearchHistory(await addToHistory(`title=true&q=${input.searchInput}`)) 
 
         url += query;
         router.push(url);
