@@ -10,6 +10,7 @@ export default function History(){
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
 
     const router = useRouter();
+    if(!searchHistory) return null;
 
     let parsedHistory = [];
 
