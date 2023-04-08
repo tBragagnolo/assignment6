@@ -15,10 +15,16 @@ export default function Login(props){
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
 
+    async function updateAtoms(){
+        setFavouritesList(await getFavourites()); 
+        setSearchHistory(await getHistory()); 
+    }    
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
             await authenticateUser(user, password);
+            await updateAtoms();
             router.push('/favourites');
         } catch (err) {
             setWarning(err.message);
